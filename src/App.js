@@ -55,11 +55,11 @@ function App() {
   };
 
   return (
-    <div className="modal"> {/* Outer div for application */}
+    <div className="app"> {/* Outer div for application */}
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
 
-      {isOpen && (
+      {isOpen && ( // Fully removes the modal when closed
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>Fill Details</h2>
