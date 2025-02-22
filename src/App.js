@@ -55,14 +55,14 @@ function App() {
   };
 
   return (
-    <div className="app"> {/* Outer div for application */}
+    <div className="modal"> {/* Outer div for application */}
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
 
-      {isOpen && ( // Fully removes the modal when closed
+      {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Fill Details</h2>
+            <h2>Fill the Form</h2>
             <form onSubmit={handleSubmit}>
               <label>Username:</label>
               <input type="text" id="username" value={formData.username} onChange={handleChange} />
