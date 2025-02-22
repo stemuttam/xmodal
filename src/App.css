@@ -1,4 +1,4 @@
-.modal {
+.app {
   text-align: center;
   font-family: Arial, sans-serif;
   margin-top: 50px;
@@ -33,6 +33,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
@@ -43,6 +44,7 @@ button:hover {
   text-align: left;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
+  z-index: 1001;
 }
 
 /* Ensures clicking inside the modal does not close it */
