@@ -4,6 +4,11 @@
   margin-top: 50px;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 button {
   font-size: 1rem;
   padding: 10px 15px;
