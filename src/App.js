@@ -55,32 +55,34 @@ function App() {
   };
 
   return (
-    <div className="modal"> {/* Outer div with class "modal" */}
+    <div className="modal"> {/* Outer div for application */}
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
 
       {isOpen && (
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h2>Fill Details</h2>
-          <form onSubmit={handleSubmit}>
-            <label>Username:</label>
-            <input type="text" id="username" value={formData.username} onChange={handleChange} />
-            {errors.username && <p className="error">{errors.username}</p>}
+        <div className="modal-overlay" onClick={() => setIsOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Fill Details</h2>
+            <form onSubmit={handleSubmit}>
+              <label>Username:</label>
+              <input type="text" id="username" value={formData.username} onChange={handleChange} />
+              {errors.username && <p className="error">{errors.username}</p>}
 
-            <label>Email:</label>
-            <input type="email" id="email" value={formData.email} onChange={handleChange} />
-            {errors.email && <p className="error">{errors.email}</p>}
+              <label>Email:</label>
+              <input type="email" id="email" value={formData.email} onChange={handleChange} />
+              {errors.email && <p className="error">{errors.email}</p>}
 
-            <label>Date of Birth:</label>
-            <input type="date" id="dob" value={formData.dob} onChange={handleChange} />
-            {errors.dob && <p className="error">{errors.dob}</p>}
+              <label>Date of Birth:</label>
+              <input type="date" id="dob" value={formData.dob} onChange={handleChange} />
+              {errors.dob && <p className="error">{errors.dob}</p>}
 
-            <label>Phone Number:</label>
-            <input type="text" id="phone" value={formData.phone} onChange={handleChange} />
-            {errors.phone && <p className="error">{errors.phone}</p>}
+              <label>Phone Number:</label>
+              <input type="text" id="phone" value={formData.phone} onChange={handleChange} />
+              {errors.phone && <p className="error">{errors.phone}</p>}
 
-            <button type="submit" className="submit-button">Submit</button>
-          </form>
+              <button type="submit" className="submit-button">Submit</button>
+            </form>
+          </div>
         </div>
       )}
     </div>
