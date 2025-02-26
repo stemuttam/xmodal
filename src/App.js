@@ -6,56 +6,52 @@ function App() {
   const [formData, setFormData] = useState({ username: "", email: "", dob: "", phone: "" });
   const [errors, setErrors] = useState({});
 
-  // Function to handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Function to validate form data
   const validateForm = () => {
     let newErrors = {};
-    
-    // Check for empty fields
+
     for (const key in formData) {
       if (!formData[key]) {
         newErrors[key] = `Please fill out the ${key} field.`;
       }
     }
 
-    // Email validation (must contain '@')
     if (formData.email && !formData.email.includes("@")) {
-      alert("Invalid email. Please check your email address.");
-      return false;
+      if(!newErrors.email){
+        newErrors.email = "Invalid email. Please check your email address.";
+      }
     }
 
-    // Phone number validation (must be exactly 10 digits)
     if (formData.phone && !/^\d{10}$/.test(formData.phone)) {
-      alert("Invalid phone number. Please enter a 10-digit phone number.");
-      return false;
+      if(!newErrors.phone){
+        newErrors.phone = "Invalid phone number. Please enter a 10-digit phone number.";
+      }
     }
 
-    // Date of Birth validation (should not be a future date)
     if (formData.dob && new Date(formData.dob) > new Date()) {
-      alert("Invalid date of birth. Please enter a past date.");
-      return false;
+        if(!newErrors.dob){
+           newErrors.dob = "Invalid date of birth. Please enter a past date.";
+        }
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsOpen(false); // Close modal
-      setFormData({ username: "", email: "", dob: "", phone: "" }); // Reset form
-      setErrors({}); // Clear errors
+      setIsOpen(false);
+      setFormData({ username: "", email: "", dob: "", phone: "" });
+      setErrors({});
     }
   };
 
   return (
-    <div className="modal"> {/* Outer div for application */}
+    <div className="modal">
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
 
